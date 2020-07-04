@@ -28,7 +28,7 @@ flutter_architecture是一个Flutter页面架构组件，使用很类似谷歌�
 - 构建高质量的强大应用
 
 
-![architecture.png](https://i.loli.net/2020/07/04/gHot1UNxn7YcR3P.png)
+![architecture.png](img/final-architecture.png)
 
 ### 使用
 

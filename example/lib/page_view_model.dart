@@ -1,6 +1,6 @@
 import 'package:example/page_third_data.dart';
 import 'package:example/widgets/loading_page.dart';
-import 'package:fac/fac.dart';
+import 'package:pikachu_fac/pikachu_fac.dart';
 import 'package:flutter/cupertino.dart';
 
 class PageModel {

@@ -3,7 +3,9 @@
 `FAC` Flutter 架构组件（Flutter Architecture Components） 致力于解决Flutter跨组件刷新和集中化状态管理、关注点分离、构建高性能Flutter页面；
 
 ### Feature
-相比Provider：
+
+与Provider相比：
+
 - `FAC`提供了强大了解耦装置`ViewModel`；
 - 更为简洁的状态关联方式；
 - 以页面或APP纬度的集中化状态管理`ViewModelStore`；
@@ -12,7 +14,9 @@
 
 
 ### FAC架构组件模型
+
 ![image.png](https://i.loli.net/2020/08/04/eP3pW5xHOZ9kctY.png)
+
 没错，FAC看起来与AAC（[Android Architecture Components](https://developer.android.google.cn/jetpack/docs/guide)）框架如出一辙，我们构建了带有生命周期监听的可观察数据对象LiveState，用于实现状态和UI控制器绑定；并实现`ViewModelStoreProxyWidget`用来存储和卸载ViewModel对象——当然在业务开发中，我们并不需要关注它的存在，会在架构层合适的位置进行注入；
 
 这一切，对熟悉Android原生AAC组件的开发者来说，是一个福音；因为相对大而笨重的Provider，复杂的Redux框架来说，对FAC的学习是零成本！
@@ -162,6 +166,7 @@ ViewModel用来提供自定义组件刷新接口
 
 ### 代理拦截与代理穿透
 - 代理拦截
+
 我们在任何位置可以轻松获取数据源并刷新UI的便利很大程度来源于代理拦截机制。如下，`ViewModel.of<CountViewModel>(context).model`
 
 所谓的代理机制，原理很简单，我们会通过Provider在合适位置注册VMS进行节点拦截，因为inheritWidget会在最近位置通过泛型获取数据，从而达到拦截的目的。

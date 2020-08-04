@@ -11,9 +11,9 @@ dependencies:
 
   provider: ^3.2.0
 
-  #  fac: ^1.0.1
-  fac:
-    path: ../
+  pikachu_fac: ^1.0.2
+#  pikachu_fac:
+#    path: ../
 
 dev_dependencies:
   flutter_test:

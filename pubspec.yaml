@@ -1,6 +1,6 @@
-name: fac
+name: pikachu_fac
 description: Flutter architecture components
-version: 1.0.0
+version: 1.0.3
 homepage: https://github.com/Gavinme/flutter-architecture-component-JetPack
 
 environment:

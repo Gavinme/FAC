@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:example/widgets/staged_page_view.dart';
 import 'package:flutter/material.dart';
-import 'package:fac/fac.dart';
+import 'package:pikachu_fac/pikachu_fac.dart';
 
 import 'loading_dialog.dart';
 

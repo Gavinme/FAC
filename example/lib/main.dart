@@ -1,6 +1,6 @@
 import 'package:example/pages/home_page.dart';
 import 'package:flutter/material.dart';
-import 'package:fac/fac.dart';
+import 'package:pikachu_fac/pikachu_fac.dart';
 
 void main() => runApp(MyApp());
 

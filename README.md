@@ -92,7 +92,7 @@ LiveState<PageModel> pageModel = LiveState<PageModel>(PageModel());
 
 ### 数据流
 
-![image.png](http://storage.lianjia.com/infra-weapons/1595823478406.png?AWSAccessKeyId=BF78D858573CFD2BE99D&Expires=1596547384&Signature=mx47nT4Y0AUuurQy59yyACu0FbE%3D)
+![image.png](https://i.loli.net/2020/08/04/BfvKnhCu3rcsbl2.png)
 
 
 ### 架构设计背景

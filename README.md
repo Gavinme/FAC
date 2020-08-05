@@ -2,6 +2,8 @@
 
 `FAC` Flutter 架构组件（Flutter Architecture Components） 致力于解决Flutter跨组件刷新和集中化状态管理、关注点分离、构建高性能Flutter页面；
 
+源码请查看：[Github](https://github.com/Gavinme/flutter-architecture-component-JetPack)
+
 ### Feature
 
 与Provider相比：

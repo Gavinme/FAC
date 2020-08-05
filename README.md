@@ -101,7 +101,9 @@ LiveState<PageModel> pageModel = LiveState<PageModel>(PageModel());
 架构设计的初衷，是为了解决Flutter在复杂的嵌套页面场景下，能够有效的管理页面的状态和刷新效率；对于简单的业务场景，同样有友好的代码分层和状态管理能力！
 
 以下是业务中采用FAC开发的Flutter页面：
-![image.png](https://i.loli.net/2020/08/04/kCYnf3gWm9dDvri.png)
+
+![image.png](https://i.loli.net/2020/08/05/quZUKAQopXvz1IG.png)
+
 
 
 # 组件

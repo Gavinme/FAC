@@ -38,7 +38,7 @@
 
 ```
 dependencies:
-  consumer: ^1.0.3
+  pikach_fac: ^1.0.3
 ```
 
 ### 使用

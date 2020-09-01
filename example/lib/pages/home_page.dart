@@ -14,7 +14,11 @@ class HomePageWidgetState extends State<HomePageWidget> {
   PageController _controller;
 
   Widget _buildTabWidget(BuildContext context) {
-    const _pages = [const FirstTabWidget(), const SecondTabWidget(), const ThirdTabWidget()];
+    const _pages = [
+      const FirstTabWidget(),
+      const SecondTabWidget(),
+      const ThirdTabWidget()
+    ];
     return PageView.builder(
         physics: NeverScrollableScrollPhysics(), //viewPage禁止左右滑动
         controller: _controller,
@@ -25,23 +29,41 @@ class HomePageWidgetState extends State<HomePageWidget> {
   @override
   void initState() {
     _controller = PageController(initialPage: 0);
+//    PageViewModel.get(context).testMedia();
+    PageViewModel.get(context).testTransformations();
+    debugPrint('${runtimeType.toString()} initState');
     super.initState();
   }
 
   @override
+  void deactivate() {
+    debugPrint('${runtimeType.toString()} deactivate');
+    super.deactivate();
+  }
+
+  @override
+  void didUpdateWidget(HomePageWidget oldWidget) {
+    debugPrint('${runtimeType.toString()} didUpdateWidget');
+    super.didUpdateWidget(oldWidget);
+  }
+
+  @override
   void dispose() {
+    debugPrint('${runtimeType.toString()} dispose');
     _controller.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
+    debugPrint('${runtimeType.toString()} build');
     return Scaffold(
         floatingActionButton: FloatingActionButton(
           tooltip: 'Increment',
           child: Icon(Icons.add),
           onPressed: () {
-            switch (PageViewModel.get(context).pageModel.getState().currentTabIndex) {
+            switch (
+                PageViewModel.get(context).pageModel.state.currentTabIndex) {
               case 0:
                 PageViewModel.get(context).loadFirstData(context);
                 break;
@@ -51,7 +73,7 @@ class HomePageWidgetState extends State<HomePageWidget> {
                 break;
               case 2:
                 PageViewModel.get(context).loadThirdData(context,
-                    instance: (PageViewModel.get(context).thirdPageModel.getState().index == 0 ? 'HOME' : 'APPAREL'));
+                    instance: (PageViewModel.get(context).getTabIndex()));
                 break;
             }
           },
@@ -59,19 +81,25 @@ class HomePageWidgetState extends State<HomePageWidget> {
         body: _buildTabWidget(
           context,
         ),
-        bottomNavigationBar: BottomNavigationBar(
-          currentIndex: (PageViewModel.get(context).pageModel.getState().currentTabIndex),
-          onTap: (index) {
-            _controller.jumpToPage(index);
-            PageViewModel.get(context).pageModel.setState((value, _) {
-              _.state.currentTabIndex = index;
-            });
-          },
-          items: <BottomNavigationBarItem>[
-            BottomNavigationBarItem(title: Text('首页'), icon: Icon(Icons.home)),
-            BottomNavigationBarItem(title: Text('书籍'), icon: Icon(Icons.book)),
-            BottomNavigationBarItem(title: Text('我的'), icon: Icon(Icons.perm_identity)),
-          ],
-        ));
+        bottomNavigationBar: PageViewModel.get(context)
+            .pageModel
+            .buildWithObserve((ctx, st) => BottomNavigationBar(
+                  currentIndex: (st.currentTabIndex),
+                  onTap: (index) {
+                    _controller.jumpToPage(index);
+                    PageViewModel.get(context).pageModel.setState((value, _) {
+                      _.state.currentTabIndex = index;
+                      print('change tab index!');
+                    });
+                  },
+                  items: <BottomNavigationBarItem>[
+                    BottomNavigationBarItem(
+                        title: Text('首页'), icon: Icon(Icons.home)),
+                    BottomNavigationBarItem(
+                        title: Text('书籍'), icon: Icon(Icons.book)),
+                    BottomNavigationBarItem(
+                        title: Text('我的'), icon: Icon(Icons.perm_identity)),
+                  ],
+                )));
   }
 }

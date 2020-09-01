@@ -63,7 +63,7 @@ class ThirdTabWidgetState extends State<ThirdTabWidget> with AutomaticKeepAliveC
   var apparelKey = PageStorageKey('APPAREL');
 
   _onTabChange() {
-    PageViewModel.get(context).thirdPageModel.setState((_state, owner) => _state.index = tabController?.index);
+    PageViewModel.get(context).setTabIndex(tabController?.index);
   }
 
   @override
@@ -118,10 +118,11 @@ class ThirdTabWidgetState extends State<ThirdTabWidget> with AutomaticKeepAliveC
           children: allPages.keys.map<Widget>((page) {
             print('TabBarView page${page.label}');
 
-            return LoadingPageWidget(
+            return
+              LoadingPageWidget(
               onInvokeLoaded: () => PageViewModel.get(context).loadThirdData(
                 context,
-                instance: (PageViewModel.get(context).thirdPageModel.getState().index == 0 ? 'HOME' : 'APPAREL'),
+                instance: PageViewModel.get(context).getTabIndex(),
               ),
               key: page.label == 'HOME' ? homeKey : apparelKey,
               loadingVmName: page.label,

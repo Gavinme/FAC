@@ -8,12 +8,13 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return ViewModelStoreProxyWidget(
+        child: MaterialApp(
       title: 'FAC Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: ViewModelStoreProxyWidget(child: HomePageWidget()),
-    );
+      home: HomePageWidget(),
+    ));
   }
 }
